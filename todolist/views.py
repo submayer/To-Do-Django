@@ -7,7 +7,7 @@ from .models import ToDo
 # Create your views here.
 def index(request):
     todos = ToDo.objects.all()
-    return render(request, 'index.html', {'todo_list': todos, 'title': 'Главная страница'})
+    return render(request, 'todoapp/index.html', {'todo_list': todos, 'title': 'Главная страница'})
 
 
 @require_http_methods(['POST'])
