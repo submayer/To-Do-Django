@@ -4,6 +4,8 @@ from django.views.decorators.http import require_http_methods
 from .models import ToDo
 
 
+# https://dev-gang.ru/article/kak-razvernut-prilozhenie-django-v-heroku-s-pomosczu-git-cli-oclmngimkd/
+
 # Create your views here.
 def index(request):
     todos = ToDo.objects.all()
