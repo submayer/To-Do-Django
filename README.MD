@@ -19,7 +19,7 @@
 
 Устанавливаем модули
 
-    pip install django
+    pip install django gunicorn
 
 
 Создаем проект todoapp и переходим в него
@@ -37,6 +37,11 @@
     todolist,
 ]
 
+Укажем локализацию и часовой пояс в файле settings.py
+
+    LANGUAGE_CODE = 'ru-ru'
+    TIME_ZONE = 'Europe/Moscow'
+
 Добавим папку шаблонов в settings.py
 
     TEMPLATES = [
@@ -51,10 +56,14 @@
     echo .> .gitignore
     echo .> templates/layout.html
     echo .> templates/index.html
-    echo .> todolist/static/css/style.css
+    echo .> todolist/static/todolist/css/style.css
     echo .> README.MD
     echo .> todolist/urls.py
 
+
+Подтянем всю статику в папку static нашего проекта
+
+    python manage.py collectstatic
 
 Создаем файл с зависимостями проекта
 
@@ -66,6 +75,9 @@
     python manage.py runserver
 
 
+В проекте так же присутствуют файл Procfile и runtime.txt, для публикации проекта на heroku.com
+
+База данных должна быть в файле .gitignore, но для этого примера я ее оттуда удалил, чтобы был пример ToDo задач
 
 Ссылка на оригинал: https://youtu.be/3vfum74ggHE
     

@@ -4,6 +4,7 @@ from django.views.decorators.http import require_http_methods
 from .models import ToDo
 
 
+# https://qna.habr.com/q/236166
 # https://dev-gang.ru/article/kak-razvernut-prilozhenie-django-v-heroku-s-pomosczu-git-cli-oclmngimkd/
 
 # Create your views here.
