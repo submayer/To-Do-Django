@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
 from .models import ToDo
@@ -14,6 +15,7 @@ def index(request):
 
 
 @require_http_methods(['POST'])
+@csrf_exempt
 def add(request):
     title = request.POST['title']
     todo = ToDo(title=title)
