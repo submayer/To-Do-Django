@@ -1,0 +1,21 @@
+(pages) $ touch templates/about.html
+<!-- templates/about.html -->
+<h1>About page</h1>
+# pages/views.py
+from django.views.generic import TemplateView
+ 
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+ 
+class AboutPageView(TemplateView): # новое
+    template_name = 'about.html'
+
+# pages/urls.py
+from django.urls import path
+ 
+from .views import HomePageView, AboutPageView # новое
+ 
+urlpatterns = [
+    path('about/', AboutPageView.as_view(), name='about'), # новое
+    path('', HomePageView.as_view(), name='home'),  
+]
